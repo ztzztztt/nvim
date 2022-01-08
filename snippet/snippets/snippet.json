@@ -1,0 +1,43 @@
+{
+    "header": {
+        "prefix": "header",
+        "body": [
+            "#!/usr/bin/env python",
+            "# -*- encoding: utf-8 -*-",
+            "\"\"\"",
+            "@Author  : zhoutao",
+            "@License : (C) Copyright 2013-2021, China University of Petroleum",
+            "@Contact : zhoutao@s.upc.edu.cn",
+            "@Software: neovim",
+            "@File    : ",
+            "@Time    : ${1:2021/12/22 16:51}", 
+            "@Desc    : ",
+            "\"\"\""
+        ],
+        "description": "Add file header for python file"
+    },
+    "doc": {
+        "prefix": "doc",
+        "body": [
+            "\"\"\"",
+            "${1:docstring}",
+            ":param ${2:params}:",
+            ":return:",
+            "\"\"\""
+        ],
+        "description": "Add function docstring for python 3"
+    },
+    "dof": {
+        "prefix": "dof",
+        "body": [
+            "def ${1:fname}(${2:args}):",
+            "\t\"\"\"",
+            "\t${3:docstring}",    
+            "\t:param ${2:params}:",
+            "\t:return:",
+            "\t\"\"\"",
+            "\tpass"
+        ],
+        "description": "Add function with docstring for python3"
+    }
+}
