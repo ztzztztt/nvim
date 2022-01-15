@@ -9,12 +9,21 @@
             "@License : (C) Copyright 2013-2021, China University of Petroleum",
             "@Contact : zhoutao@s.upc.edu.cn",
             "@Software: neovim",
-            "@File    : ",
-            "@Time    : ${1:2021/12/22 16:51}", 
+            "@File    : $TM_FILENAME_BASE",
+            "@Time    : $CURRENT_YEAR/$CURRENT_MONTH/$CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND",
             "@Desc    : ",
-            "\"\"\""
+            "\"\"\"",
+            "$0"
         ],
         "description": "Add file header for python file"
+    },
+    "main": {
+        "prefix": "ifm",
+        "body": [
+            "if __name__ == \"__main__\"",
+            "   pass",
+            "$0"
+        ]
     },
     "doc": {
         "prefix": "doc",
@@ -32,7 +41,7 @@
         "body": [
             "def ${1:fname}(${2:args}):",
             "\t\"\"\"",
-            "\t${3:docstring}",    
+            "\t${3:docstring}",
             "\t:param ${2:params}:",
             "\t:return:",
             "\t\"\"\"",
