@@ -3,6 +3,8 @@ local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
 -- Neovim General shortcuts
+map('i', 'kk', "<Esc>", opts)
+map('v', 'kk', "<Esc>", opts)
 -- 清除搜索高亮
 map('n', '<leader>c', ':nohl<CR>', opts)
 
@@ -75,3 +77,6 @@ map('n', '<leader>db', '<CMD>lua require"dap".toggle_breakpoint()<CR>', opts)
 map('n', '<leader>dc', '<CMD>lua require"dap".set_breakpoint(vim.fn.input("Breakpoint condition: "))<CR>', opts)
 map('n', '<leader>dr', '<CMD>lua require"dapui".toggle()<CR>', opts)
 
+-- neogen
+map("n", "<leader>nf", "<CMD>lua require('neogen').generate({ type = 'func' })<CR>", opts)
+map("n", "<leader>nc", "<CMD>lua require('neogen').generate({ type = 'class' })<CR>", opts)

@@ -82,3 +82,34 @@ require('nvim-autopairs').setup({
     fast_wrap = {},
 })
 
+-- docstring
+require('neogen').setup({
+    enabled = true,
+    input_after_comment = false,
+    languages = {
+        python = {
+            template = {
+                annotation_convention = "restructure",
+                restructure = {
+                    { nil, '""" $1 """', { no_results = true, type = { "class", "func" } } },
+                    { nil, '"""$1', { no_results = true, type = { "file" } } },
+                    { nil, "", { no_results = true, type = { "file" } } },
+                    { nil, "$1", { no_results = true, type = { "file" } } },
+                    { nil, '"""', { no_results = true, type = { "file" } } },
+                    { nil, "", { no_results = true, type = { "file" } } },
+
+                    { nil, "# $1", { no_results = true, type = { "type" } } },
+                    -- custom
+                    { nil, '"""$1', },
+                    { "parameters", ":param %s: $1", { before_first_item = { "" }, type = { "func" } } },
+                    { "attributes", "%s: $1", { before_first_item = { "" } } },
+                    { "return_statement", ":return: $1", {
+                        -- before_first_item = { "" },
+                        type = { "func" }
+                    }},
+                    { nil, '"""' },
+                }
+            }
+        }
+    }
+})
