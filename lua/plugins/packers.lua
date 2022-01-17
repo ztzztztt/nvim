@@ -60,6 +60,8 @@ return packer.startup(function()
     -- Comment
     -- use { 'numToStr/Comment.nvim' }
     use { 'terrortylor/nvim-comment' }
+    use { "danymat/neogen" }
+
     -- Dap
     use { 'mfussenegger/nvim-dap' }
     use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
