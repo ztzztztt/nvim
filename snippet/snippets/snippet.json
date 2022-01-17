@@ -6,7 +6,7 @@
             "# -*- encoding: utf-8 -*-",
             "\"\"\"",
             "@Author  : zhoutao",
-            "@License : (C) Copyright 2013-2021, China University of Petroleum",
+            "@License : (C) Copyright 2016-$CURRENT_YEAR, China University of Petroleum",
             "@Contact : zhoutao@s.upc.edu.cn",
             "@Software: neovim",
             "@File    : $TM_FILENAME_BASE",
