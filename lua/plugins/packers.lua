@@ -34,7 +34,7 @@ if not status then
 end
 
 -- packer mirror url
-if use_packer_mirros then
+if use_packer_mirrors then
     packer.init {
         git = {
             default_url_format = "https://hub.fastgit.org/%s"
