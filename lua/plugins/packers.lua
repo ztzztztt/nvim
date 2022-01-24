@@ -1,12 +1,20 @@
 -- packer init
 
-vim.cmd [[ packadd packer.nvim ]]
+-- use packer mirros for packer or plugin install
+local use_packer_mirrors = false
+
+-- vim.cmd [[ packadd packer.nvim ]]
 local status, packer = pcall(require, "packer")
 
 if not status then
     local packer_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-    local packer_repo_prefix = "https://hub.fastgit.org/%s"
+    if use_packer_mirros then
+        local packer_repo_prefix = "https://hub.fastgit.org/%s"
+    else
+        local packer_repo_prefix = "https://github.com/%s"
+    end
     vim.fn.delete(packer_path, "rf")
+    -- git clone packer.nvim
     vim.fn.system {
         "git",
         "clone",
@@ -26,11 +34,13 @@ if not status then
 end
 
 -- packer mirror url
-packer.init {
-    git = {
-        default_url_format = "https://hub.fastgit.org/%s"
+if use_packer_mirros then
+    packer.init {
+        git = {
+            default_url_format = "https://hub.fastgit.org/%s"
+        }
     }
-}
+end
 
 
 return packer.startup(function()
