@@ -69,7 +69,6 @@ require('nvim_comment').setup({
 
 -- 调试工具包
 local dap = require('dap')
-
 dap.adapters.python = {
     type = 'executable';
     command = 'python';
@@ -84,8 +83,15 @@ dap.configurations.python = {
         pythonPath = function()
             if vim.fn.executable("python") == 1 then
                 return 'python'
-            else
+            elseif vim.fn.executable("/usr/bin/python") == 1 then
                 return '/usr/bin/python'
+            else
+                local executable = vim.fn.system {
+                    "python",
+                    "-c",
+                    "import sys; print(sys.executable)"
+                }
+                return executable
             end
         end;
     },
