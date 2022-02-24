@@ -9,9 +9,9 @@ local status, packer = pcall(require, "packer")
 if not status then
     local packer_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
     if use_packer_mirros then
-        local packer_repo_prefix = "https://hub.fastgit.org/%s"
+        packer_repo_prefix = "https://github.do/https://github.com/%s"
     else
-        local packer_repo_prefix = "https://github.com/%s"
+        packer_repo_prefix = "https://github.com/%s"
     end
     vim.fn.delete(packer_path, "rf")
     -- git clone packer.nvim
@@ -37,7 +37,7 @@ end
 if use_packer_mirrors then
     packer.init {
         git = {
-            default_url_format = "https://hub.fastgit.org/%s"
+            default_url_format = packer_repo_prefix
         }
     }
 end

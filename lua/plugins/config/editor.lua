@@ -51,6 +51,13 @@ require'nvim-treesitter.configs'.setup {
     },
 }
 
+-- Treesitter Fold
+vim.wo.fillchars    = "fold: "
+vim.wo.foldmethod   = "expr"
+vim.wo.foldexpr     = "nvim_treesitter#foldexpr()"
+vim.wo.foldlevel    = 99
+
+
 -- Comment
 require('nvim_comment').setup({
     -- Linters prefer comment and line to have a space in between markers

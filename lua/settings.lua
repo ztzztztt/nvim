@@ -27,4 +27,9 @@ vim.o.writebackup   = false
 vim.o.completeopt   = "menu,menuone,noselect"           -- insert mode completion options
 
 
+-- fold
+-- vim.o.fillchars     = "fold: "
+vim.wo.foldmethod   = "expr"
+vim.wo.foldlevel    = 99
+vim.wo.foldexpr     = "nvim_treesitter#foldexpr()"
 
