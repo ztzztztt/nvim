@@ -56,9 +56,6 @@ require('nvim-tree').setup({
   update_focused_file = {
     enable = true
   },
-  view = {
-    auto_resize = true
-  },
   filters = {
     custom = {'.git', 'node_modules'}
   }

@@ -1,18 +1,21 @@
 -- packer init
 
 -- use packer mirros for packer or plugin install
-local use_packer_mirrors = false
+local use_packer_mirrors = true
 
 -- vim.cmd [[ packadd packer.nvim ]]
 local status, packer = pcall(require, "packer")
 
+local proxy_url = "https://github.ztzztztt.workers.dev/"
+local packer_repo_prefix = "https://github.com/%s"
+
+if use_packer_mirrors then
+    packer_repo_prefix = proxy_url .. packer_repo_prefix
+end
+
+
 if not status then
     local packer_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-    if use_packer_mirros then
-        packer_repo_prefix = "https://github.do/https://github.com/%s"
-    else
-        packer_repo_prefix = "https://github.com/%s"
-    end
     vim.fn.delete(packer_path, "rf")
     -- git clone packer.nvim
     vim.fn.system {
@@ -32,6 +35,7 @@ if not status then
         error("packer init failed")
     end
 end
+
 
 -- packer mirror url
 if use_packer_mirrors then
